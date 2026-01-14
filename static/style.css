@@ -1,0 +1,56 @@
+body { font-family: sans-serif; background-color: #f4f4f9; margin: 0; padding: 0; text-align: center; }
+
+/* Login */
+#login-screen { display: flex; height: 100vh; justify-content: center; align-items: center; }
+.card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+input { padding: 10px; font-size: 16px; width: 200px; margin-bottom: 10px; }
+button { padding: 10px 20px; font-size: 16px; background: #007bff; color: white; border: none; cursor: pointer; border-radius: 5px; }
+button:hover { background: #0056b3; }
+
+/* Dashboard */
+.hidden { display: none !important; }
+.header { padding: 20px; background: #333; color: white; margin-bottom: 20px; }
+.badge { background: #ffd700; color: #333; padding: 5px 10px; border-radius: 5px; font-weight: bold; }
+
+/* Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tile {
+    background: #28a745; /* Green for Available */
+    color: white;
+    padding: 30px;
+    font-size: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tile:hover { transform: scale(1.05); }
+
+.tile.taken {
+    background: #6c757d; /* Grey for Taken */
+    cursor: not-allowed;
+    transform: none;
+}
+.tile.taken.taken-by-me {
+    background: #007bff; /* Blue if YOU took it */
+}
+
+.tile span { font-size: 14px; margin-top: 5px; opacity: 0.9; }
+.error { color: red; margin-top: 10px; }
+
+/* Admin Modal */
+#admin-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; }
+.modal-content { background: white; padding: 20px; border-radius: 8px; }
+.danger-btn { background: #dc3545; }
