@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic Selector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+   <script src="{{ url_for('static', filename='socket.io.min.js') }}"></script>
+</head>
+<body>
+
+    <div id="login-screen">
+        <div class="card">
+            <h2>Select Your Group</h2>
+            <input type="number" id="group-input" placeholder="Group Number (1-35)" min="1" max="35">
+            <button onclick="enterDashboard()">Enter Dashboard</button>
+            <p id="login-error" class="error"></p>
+        </div>
+    </div>
+
+    <div id="dashboard-screen" class="hidden">
+        <div class="header">
+            <h1>Class Topic Selection</h1>
+            <div class="info">You are: <span id="display-group" class="badge"></span></div>
+        </div>
+
+        <div class="grid-container" id="grid">
+            </div>
+
+        <div class="footer">
+            <button class="admin-btn" onclick="toggleAdmin()">Admin Reset</button>
+        </div>
+    </div>
+
+    <div id="admin-modal" class="hidden">
+        <div class="modal-content">
+            <h3>Admin Reset</h3>
+            <input type="password" id="admin-pass" placeholder="Password">
+            <button onclick="resetSystem()" class="danger-btn">Reset All</button>
+            <button onclick="toggleAdmin()">Cancel</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
